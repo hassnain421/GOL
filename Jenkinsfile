@@ -7,7 +7,7 @@ node {
     withSonarQubeEnv('sonarqube') {
       sh "${scannerHome}/bin/sonar-scanner \
       -D sonar.login=admin \
-      -D sonar.password=admin \
+      -D sonar.password=1234 \
       -D sonar.projectKey=sonarqubetest \
       -D sonar.exclusions=vendor/**,resources/**,**/*.java \
       -D sonar.host.url=http://159.203.169.201/:9000/"
