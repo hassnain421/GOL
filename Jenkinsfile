@@ -11,9 +11,9 @@ node {
  //     -D sonar.projectKey=sonarqubetest \
 //      -D sonar.exclusions=vendor/**,resources/**,**/*.java \
 //      -D sonar.host.url=http://159.203.169.201/:9000/"
-        -Dsonar.projectKey=sonarqubetest \
-        -Dsonar.host.url=http://159.203.169.201:9000 \
-        -Dsonar.login=test
+      -D sonar.projectKey=sonarqubetest \
+      -D sonar.host.url=http://159.203.169.201:9000 \
+      -D sonar.login=test
     }
   }
 }
