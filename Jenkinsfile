@@ -1,17 +1,11 @@
 node {
-  stage('Clone the Git') {
+  stage('SCM') {
     git 'https://github.com/hassnain421/GOL.git'
   }
-  stage('SonarQube analysis') {
-    def scannerHome = tool 'sonarqube';
-    withSonarQubeEnv('sonarqube') {
-      sh "${scannerHome}/bin/sonar-scanner \
-      -D sonar.login=admin \
-      -D sonar.password=1234 \
-      -D sonar.projectKey=testintegration \
-      -D sonar.exclusions=vendor/**,resources/**,**/*.java \
-      -D sonar.host.url=http://143.198.7.75:9000/"
-
+  stage('SonarQube Analysis') {
+    def mvn = tool 'Default Maven';
+    withSonarQubeEnv() {
+      sh "${mvn}/bin/mvn clean verify sonar:sonar"
     }
   }
 }
